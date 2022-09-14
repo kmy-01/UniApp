@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Program Files/AndroidStudioProjects/Group02-KKLY/app/src/main/res/layout/activity_info.xml" value="0.1765625" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/Group02-KKLY/app/src/main/res/layout/activity_main.xml" value="0.2203125" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/Group02-KKLY/app/src/main/res/layout/activity_schedule.xml" value="0.5" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/Group02-KKLY/app/src/main/res/layout/content_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/Group02-KKLY/app/src/main/res/layout/toolbar.xml" value="0.2203125" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/drawable/button_bg.xml" value="0.12685185185185185" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/drawable/dialog_bg.xml" value="0.12685185185185185" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/drawable/divider.xml" value="0.1962962962962963" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/font/courgette.xml" value="0.14322916666666666" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/font/mogra.xml" value="0.1962962962962963" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_add_new_important_date.xml" value="0.16111111111111112" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_gpa_add_course.xml" value="0.19444444444444445" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_gpa_add_sem.xml" value="0.19444444444444445" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_gpa_course.xml" value="0.19444444444444445" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_gpacalculator.xml" value="0.15" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_important_date.xml" value="0.18" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_info.xml" value="0.21354166666666666" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_photo_num.xml" value="0.33" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_schedule.xml" value="0.18697916666666667" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_setting.xml" value="0.1" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/activity_todo.xml" value="0.25" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/add_new_task.xml" value="0.16111111111111112" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/bottomsheet_dialog_layout.xml" value="0.25" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/dialog_priority_picker_layout.xml" value="0.16111111111111112" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/each_important_date.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/each_task.xml" value="0.16111111111111112" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/feed_tab_fragment.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/gpa_main.xml" value="0.19444444444444445" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/item_data.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/login_tab_fragment.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/nav_header_main.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/signup_tab_fragment.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/timer_main.xml" value="0.21354166666666666" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/layout/toolbar.xml" value="0.17083333333333334" />
+        <entry key="..\:/Program Files/AndroidStudioProjects/todolist/app/src/main/res/menu/activity_main_drawer.xml" value="0.1638888888888889" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

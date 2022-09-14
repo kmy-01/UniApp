@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.codingstuff.todolist">
+    <!-- Permissions for internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icons8_idea"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icons8_idea"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ToDoList">
+
+        <activity
+            android:name=".ToDo.Activity.ImportantDateActivity"
+            android:exported="true" />
+        <activity android:name=".ToDo.Activity.ToDoActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".LoginPost.MainActivity"
+            android:exported="false" >
+        </activity>
+
+        <activity
+            android:name=".LoginPost.LoginSignupActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+        <activity
+            android:name=".gpaCalc.GPA_Course"
+            android:exported="false" />
+        <activity
+            android:name=".gpaCalc.GPA_AddSem"
+            android:exported="false" />
+        <activity
+            android:name=".gpaCalc.GPA_CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gpaCalc.GPA_AddCourse"
+            android:exported="false" />
+
+        <activity
+            android:name=".gpaCalc.GPA_CalculatorMain"
+            android:exported="false" />
+
+
+<!--        <activity-->
+<!--            android:name=".PomodoroTimer.TimerMainActivity"-->
+<!--            android:exported="true">-->
+<!--        </activity>-->
+
+
+<!--        <activity-->
+<!--            android:name=".PomodoroTimer.activity.SettingActivity"-->
+<!--            android:label="@string/nav_setting"-->
+<!--            android:screenOrientation="portrait">-->
+<!--        </activity>-->
+
+<!--        <service-->
+<!--            android:name=".PomodoroTimer.TickService"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="false">-->
+<!--        </service>-->
+
+<!--        <activity-->
+<!--            android:name=".PomodoroTimer.activity.ScheduleActivity"-->
+<!--            android:label="@string/nav_schedule"-->
+<!--            android:screenOrientation="portrait">-->
+<!--        </activity>-->
+<!--        <activity android:name=".PomodoroTimer.activity.MoreActivity" />-->
+
+
+    </application>
+
+</manifest>

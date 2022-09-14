@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Setting"
+            app:fontFamily="@font/courgette"
+            android:textStyle="bold" />
+        <item
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_insert_chart_black_24dp"
+            android:title="Schledule"
+            app:fontFamily="@font/courgette"
+            android:textStyle="bold" />
+     <!--<item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_info_outline_black_24dp"
+            android:title="Other Tools"
+            app:fontFamily="@font/courgette"
+         android:visibility="gone"/>-->
+        <item
+            android:id="@+id/nav_exit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Exit"
+            app:fontFamily="@font/courgette"
+            android:textStyle="bold" />
+    </group>
+</menu>
