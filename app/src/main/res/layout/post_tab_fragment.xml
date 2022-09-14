@@ -23,13 +23,15 @@
             android:id="@+id/dept_choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"
-            />
+        />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/postLabel"
+        app:startIconDrawable="@drawable/post_icon"
+        app:endIconDrawable="@drawable/clear_icon"
+        app:endIconMode="custom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +43,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/post_content"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:maxLines="15"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

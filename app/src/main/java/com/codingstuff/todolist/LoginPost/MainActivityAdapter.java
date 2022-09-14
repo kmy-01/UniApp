@@ -1,7 +1,6 @@
 package com.codingstuff.todolist.LoginPost;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

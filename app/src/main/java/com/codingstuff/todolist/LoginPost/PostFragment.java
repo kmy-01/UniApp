@@ -1,6 +1,8 @@
 package com.codingstuff.todolist.LoginPost;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,6 +34,7 @@ import java.util.Map;
 public class PostFragment extends Fragment {
 
     private static final String TAG = "DocSnippets";
+    TextInputLayout postLabel;
 
     @Nullable
     @Override
@@ -47,21 +51,27 @@ public class PostFragment extends Fragment {
                 android.R.layout.simple_dropdown_item_1line,
                 DEPARTMENTS
         );
+
         AutoCompleteTextView dept_choice = (AutoCompleteTextView) root.findViewById(R.id.dept_choice);
         dept_choice.setAdapter(adapter);
+        TextInputEditText post_content = root.findViewById(R.id.post_content);
 
-
+        // Clear text button
+        postLabel = root.findViewById(R.id.postLabel);
+        postLabel.setEndIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                post_content.setText("");
+            }
+        });
 
         submit_btn.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        AutoCompleteTextView dept_choice = (AutoCompleteTextView) root.findViewById(R.id.dept_choice);
-                        TextInputEditText post_content = root.findViewById(R.id.post_content);
-
                         Map<String, String> postInfo = new HashMap<>();
-//                        postInfo.put("author", User.userID);
-                        postInfo.put("author", "Test");
+                        SharedPreferences sharedPref = getContext().getSharedPreferences( "CurrentUser" , Context.MODE_PRIVATE);
+                        postInfo.put("author", sharedPref.getString( "displayname", "Invalid Author" ));
                         postInfo.put("content",post_content.getText().toString());
                         postInfo.put("type",dept_choice.getText().toString());
 
@@ -71,7 +81,7 @@ public class PostFragment extends Fragment {
                                     @Override
                                     public void onSuccess(DocumentReference documentReference) {
                                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                        Intent intent = new Intent(root.getContext(), FeedFragment.class);
+                                        Intent intent = new Intent(root.getContext(), MainActivity.class);
                                         startActivity(intent);
                                     }
                                 })

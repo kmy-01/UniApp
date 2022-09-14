@@ -2,6 +2,7 @@ package com.codingstuff.todolist.LoginPost;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -17,7 +18,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,8 +30,8 @@ public class LoginSignupActivity extends AppCompatActivity {
     ImageView logo;
     TabLayout tabLayout;
     ViewPager viewPager;
-    FloatingActionButton google;
     float v=0;
+    Context context = LoginSignupActivity.this;
 
     private static final String TAG_ep = "EmailPassword";
     private static final String TAG_rw = "ReadAndWriteSnippets";
@@ -59,14 +59,11 @@ public class LoginSignupActivity extends AppCompatActivity {
         db.setFirestoreSettings(settings);
         // [END set_firestore_settings]
 
-
-
         // Get layout element
         setContentView(R.layout.activity_login);
         logo = findViewById(R.id.logo);
         tabLayout = findViewById(R.id.login_signup_tab_layout);
         viewPager = findViewById(R.id.login_signup_view_pager);
-        google = findViewById(R.id.fab_google);
 
         // Tab Layout
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
@@ -81,35 +78,32 @@ public class LoginSignupActivity extends AppCompatActivity {
 
         // Animation
         logo.setTranslationY(100);
-        google.setTranslationY(300);
         tabLayout.setTranslationY(300);
-        google.setAlpha(v);
         logo.setAlpha(v);
         logo.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(100).start();
         tabLayout.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(300).start();
-        google.animate().translationY(0).alpha(1).setDuration(1000).setStartDelay(500).start();
 
         // ---------------- FIREBASE USER AUTHENTICATION ------------------
         String email, password, displayName, mobileNumber, community, privilege;
 
         String action = this.getIntent().getStringExtra("action");
-        Context context = LoginSignupActivity.this;
 
         if (action!=null){
             switch (action){
                 case "signup":
-                    Toast.makeText(getApplicationContext(), "signup", Toast.LENGTH_LONG).show();
-
+//                    Toast.makeText(getApplicationContext(), "signup", Toast.LENGTH_LONG).show();
                     email = this.getIntent().getStringExtra("username");
                     password = this.getIntent().getStringExtra("password");
-                    displayName = this.getIntent().getStringExtra("displayName");
+                    SharedPreferences sharedPref  = getApplicationContext().getSharedPreferences("CurrentUser" , Context.MODE_PRIVATE);
+                    displayName = sharedPref.getString("displayname", "Fail to retrive privilege from shared pref" );
                     mobileNumber = this.getIntent().getStringExtra("mobileNumber");
                     community = this.getIntent().getStringExtra("community");
-                    privilege = this.getIntent().getStringExtra("privilege");
+                    privilege = sharedPref.getString("privilege", "Fail to retrive privilege from shared pref" );
+
                     this.createAccount(mAuth, db, context, email, password, displayName, mobileNumber, community, privilege);
                     break;
                 case "login":
-                    Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_LONG).show();
                     email = this.getIntent().getStringExtra("username");
                     password = this.getIntent().getStringExtra("password");
                     this.signIn(mAuth, context, email, password);
@@ -174,7 +168,10 @@ public class LoginSignupActivity extends AppCompatActivity {
 
                             // Go to main page after successful sign up
                             Intent mainpage_intent = new Intent(context , MainActivity.class );
-                            mainpage_intent.putExtra("firestore_userid", currentUserID);
+                            SharedPreferences sharedPref  = context.getSharedPreferences("CurrentUser" , Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("firestore_userid", currentUserID);
+                            editor.commit();
                             startActivity(mainpage_intent);
                         } else {
                             // If sign up fails, display a message to the user.
@@ -200,11 +197,13 @@ public class LoginSignupActivity extends AppCompatActivity {
 
                             // TODO: Output UserID
                             String currentUserID = user.getUid();
-//                            Toast.makeText(LoginSignupActivity.this, "Go to MainActivity; uid: " + currentUserID, Toast.LENGTH_SHORT).show();
 
                             // Go to main page if log in is successful
                             Intent mainpage_intent = new Intent(context , MainActivity.class );
-                            mainpage_intent.putExtra("firestore_userid", currentUserID);
+                            SharedPreferences sharedPref  = context.getSharedPreferences("CurrentUser" , Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.putString("firestore_userid", currentUserID);
+                            editor.commit();
                             startActivity(mainpage_intent);
 
                         } else {

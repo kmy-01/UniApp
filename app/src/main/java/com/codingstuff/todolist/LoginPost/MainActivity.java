@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -51,12 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         db.setFirestoreSettings(settings);
 
-        String firestore_userid = this.getIntent().getStringExtra("firestore_userid");
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences( "CurrentUser" , Context.MODE_PRIVATE);
+        String firestore_userid = sharedPref.getString( "firestore_userid", "Invalid firestore_userid" );
+        SharedPreferences.Editor editor = sharedPref.edit();
+
         Log.d(TAG, "User ID: " + firestore_userid);
 
         tabLayout = findViewById(R.id.login_signup_tab_layout);
         viewPager = findViewById(R.id.login_signup_view_pager);
-
 
         tabLayout.addTab(tabLayout.newTab().setText("Feed"));
         tabLayout.setupWithViewPager(viewPager);
@@ -86,12 +90,15 @@ public class MainActivity extends AppCompatActivity {
                         userData_map = document.getData();
                         Map<String, String> userData_strmap = (Map<String, String>) userData_map;
 
-                        user = new User(firestore_userid, userData_strmap.get("displayName"), userData_strmap.get("contactNumber"),userData_strmap.get("community"),userData_strmap.get("privilege"));;
+                        user = new User(firestore_userid, userData_strmap.get("displayName"), userData_strmap.get("contactNumber"),userData_strmap.get("community"),userData_strmap.get("privilege"));
+                        Context context = getApplicationContext();
+                        editor.putString("displayname", user.getDisplayName());
+                        editor.putString("privilege", user.getPrivilege());
+                        editor.commit();
 
                         // Staff has an extra tab
                         if (user.getPrivilege().equalsIgnoreCase("staff")){
                             tabLayout.addTab(tabLayout.newTab().setText("Post"));
-
                             MainActivityAdapter mainActivityAdapter = new MainActivityAdapter( getSupportFragmentManager(), getApplicationContext(), tabLayout.getTabCount() );
                             viewPager.setAdapter( mainActivityAdapter );
                             viewPager.addOnPageChangeListener( new TabLayout.TabLayoutOnPageChangeListener( tabLayout ) );

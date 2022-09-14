@@ -7,12 +7,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="44dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-        >
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/signup_email"
@@ -39,29 +40,28 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signup_email"
                 app:layout_constraintVertical_bias="0.05"
-                />
+                app:layout_constraintWidth_percent=".8" />
 
             <EditText
                 android:id="@+id/mobile_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_txt_bg"
-                android:hint="Mobile Number"
+                android:hint="Mobile Number eg. 0123456789"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/display_name"
-                app:layout_constraintVertical_bias="0.05" />
+                app:layout_constraintVertical_bias="0.05"
+                app:layout_constraintWidth_percent=".8" />
 
             <EditText
                 android:id="@+id/signup_password"
@@ -73,13 +73,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mobile_number"
                 app:layout_constraintVertical_bias="0.05"
-                />
+                app:layout_constraintWidth_percent=".8" />
 
             <TextView
                 android:id="@+id/label_community"
@@ -89,12 +88,12 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="Community:"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signup_password"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintWidth_percent=".8" />
 
             <Spinner
                 android:id="@+id/community"
@@ -104,13 +103,12 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/label_community"
-                app:layout_constraintVertical_bias="0" />
-
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintWidth_percent=".8" />
 
 
             <TextView
@@ -121,27 +119,27 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="Student/Staff:"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/community"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintWidth_percent=".8" />
 
             <Spinner
                 android:id="@+id/privilege"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:entries="@array/privilege"
-                app:layout_constraintWidth_percent=".8"
-                app:layout_constraintVertical_bias="0"
                 android:paddingLeft="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/label_privilege" />
+                app:layout_constraintTop_toBottomOf="@+id/label_privilege"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintWidth_percent=".8" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/signup_btn"
@@ -152,13 +150,12 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintWidth_percent=".8"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/privilege"
                 app:layout_constraintVertical_bias="0.2"
-                />
+                app:layout_constraintWidth_percent=".8" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -1,7 +1,10 @@
 package com.codingstuff.todolist.LoginPost;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.codingstuff.todolist.R;
+
+import java.util.regex.Pattern;
 
 public class SignUpFragment extends Fragment {
 
@@ -46,16 +51,25 @@ public class SignUpFragment extends Fragment {
                         String community_text = community.getSelectedItem().toString().toLowerCase();
                         String privilege_text = privilege.getSelectedItem().toString().toLowerCase();
 
+                        if (validate_email_pw(username, password, displayName, mobileNumber, username_text, password_text, displayName_text, mobileNumber_text)==false)
+                            return;
+
                         // Pass data back to LoginSignupActivity.java
                         Intent intent = new Intent( getActivity(), LoginSignupActivity.class );
                         intent.putExtra("action", "signup");
 
                         intent.putExtra("username", username_text);
                         intent.putExtra("password", password_text);
-                        intent.putExtra("displayName", displayName_text);
                         intent.putExtra("mobileNumber", mobileNumber_text);
                         intent.putExtra("community", community_text);
-                        intent.putExtra("privilege", privilege_text);
+
+                        Context context = getContext();
+                        SharedPreferences sharedPref  = context.getSharedPreferences("CurrentUser" , Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("displayname", displayName_text);
+                        editor.putString("privilege", privilege_text);
+                        editor.commit();
+
                         startActivity( intent );
                     }
                 }
@@ -70,5 +84,51 @@ public class SignUpFragment extends Fragment {
         password.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
 
         return root;
+    }
+
+    public boolean validate_email_pw(EditText username, EditText password, EditText displayName, EditText mobileNumber, String username_text, String password_text, String displayName_text, String mobileNumber_text){
+        // Validate email
+        if (username_text.isEmpty()){
+            username.setError("Email is required");
+            username.requestFocus();
+            return false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(username_text).matches()){
+            username.setError("Please provide a valid email");
+            username.requestFocus();
+            return false;
+        }
+
+        // Validate password
+        if (password_text.isEmpty()){
+            password.setError("Email is required");
+            password.requestFocus();
+            return false;
+        }
+        if ( !Pattern.compile(".{6,}").matcher(password_text).matches() ){
+            password.setError("Please key in at least 6 characters");
+            password.requestFocus();
+            return false;
+        }
+        // Validate Display Name
+        if (displayName_text.isEmpty()){
+            displayName.setError("Display Name is required");
+            displayName.requestFocus();
+            return false;
+        }
+        // Validate Mobile Number
+        if (mobileNumber_text.isEmpty()){
+            mobileNumber.setError("Mobile number is required");
+            mobileNumber.requestFocus();
+            return false;
+        }
+        if (!Pattern.compile("[0-9]*").matcher(password_text).matches()){
+            mobileNumber.setError("eg. 0123456789");
+            mobileNumber.requestFocus();
+            return false;
+        }
+
+
+        return true;
     }
 }
